@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ADEYEMI OLUWATOMI · GS campaign · Y2K grainy</title>
+  <!-- Y2K fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@400;500;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #010d1a;
+      font-family: 'Chakra Petch', 'Courier New', monospace;
+      color: #eef5ff;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    .grain-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.12;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjUiIG51bU9jdGF2ZXM9IjMiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjZikiIG9wYWNpdHk9IjAuNiIvPjwvc3ZnPg==');
+      background-repeat: repeat;
+      mix-blend-mode: overlay;
+    }
+
+    .y2k-container {
+      max-width: 1300px;
+      margin: 2rem auto;
+      padding: 0 1.8rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-chrome {
+      background: linear-gradient(145deg, #142b38, #07212e);
+      border: 2px solid #45c8ff;
+      box-shadow: 0 0 12px rgba(69,200,255,0.5), inset 0 1px 2px rgba(255,255,255,0.2);
+      border-radius: 32px;
+      padding: 2rem 2rem;
+      margin-bottom: 2.5rem;
+      backdrop-filter: blur(3px);
+    }
+
+    .candidate-glitch {
+      font-family: 'Orbitron', monospace;
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #c6ffdd, #fbd786, #f7797d);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 5px #00ccff80;
+    }
+
+    .position-y2k {
+      display: inline-block;
+      background: #0e2f3e;
+      padding: 0.2rem 1.2rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 500;
+      border-left: 4px solid #ffd966;
+      margin-top: 0.5rem;
+    }
+
+    .watchwords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin: 1.8rem 0 1rem;
+    }
+    .watchword-pill {
+      background: rgba(0, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid #0ff;
+      border-radius: 60px;
+      padding: 0.3rem 1.2rem;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: #aaffff;
+      box-shadow: 0 0 4px cyan;
+      text-transform: uppercase;
+    }
+
+    .btn-y2k {
+      background: linear-gradient(180deg, #ffcc44, #e5a020);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 800;
+      font-family: 'Orbitron', monospace;
+      color: #0a1f2e;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 5px 0 #7a4d0e;
+      transform: translateY(-2px);
+    }
+    .btn-y2k:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #7a4d0e;
+    }
+    .btn-outline-y2k {
+      background: transparent;
+      border: 2px solid #ffcc44;
+      color: #ffecb3;
+      box-shadow: none;
+      transform: none;
+    }
+    .btn-outline-y2k:hover {
+      background: #ffcc4422;
+      border-color: #ffdf88;
+    }
+
+    .manifesto-card {
+      background: #0f212eb3;
+      backdrop-filter: blur(12px);
+      border: 1px solid #32c8ff;
+      border-radius: 32px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .section-title-y2k {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.8rem;
+      border-left: 6px solid #ffd966;
+      padding-left: 1rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+    .manifesto-list {
+      list-style: none;
+    }
+    .manifesto-list li {
+      margin-bottom: 1rem;
+      padding-left: 1.8rem;
+      position: relative;
+      font-weight: 500;
+    }
+    .manifesto-list li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      color: #f0b429;
+    }
+    .exp-badge {
+      background: #0e3b4e;
+      border-radius: 40px;
+      padding: 0.4rem 1.3rem;
+      display: inline-block;
+      margin-right: 0.8rem;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+      border: 1px solid #2ad4ff;
+      font-size: 0.85rem;
+    }
+
+    /* FLIERS GRID */
+    .flier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin: 2rem 0 2rem;
+    }
+    .flier-card-y2k {
+      background: rgba(8, 28, 40, 0.8);
+      backdrop-filter: blur(6px);
+      border-radius: 28px;
+      border: 1px solid #5edfff;
+      overflow: hidden;
+      transition: 0.2s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+    .flier-card-y2k:hover {
+      transform: scale(1.02);
+      border-color: #ffd966;
+      box-shadow: 0 0 15px #ffcc4477;
+    }
+    .flier-placeholder {
+      background: radial-gradient(circle at 30% 20%, #142c38, #04131f);
+      aspect-ratio: 3 / 4;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.2s;
+      border-bottom: 2px dashed #ffdd77;
+    }
+    .flier-placeholder:hover {
+      background: #1d3e50;
+    }
+    .placeholder-y2k {
+      text-align: center;
+      background: #00000099;
+      padding: 1.2rem;
+      border-radius: 24px;
+      backdrop-filter: blur(4px);
+      border: 1px solid gold;
+    }
+    .flier-label {
+      font-size: 1.5rem;
+      font-weight: bold;
+      font-family: 'Orbitron', monospace;
+      color: #ffeaac;
+    }
+    .flier-caption {
+      text-align: center;
+      padding: 0.8rem;
+      background: #03121c;
+      font-weight: 600;
+      border-top: 1px solid #40c0ff;
+    }
+
+    /* Upcoming Event Card */
+    .event-card {
+      background: rgba(0, 20, 30, 0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      border: 1px solid #ffd966;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .event-info {
+      flex: 2;
+    }
+    .event-info h3 {
+      font-family: 'Orbitron';
+      font-size: 1.6rem;
+      color: #ffdf88;
+    }
+    .event-flier {
+      flex: 1;
+      min-width: 180px;
+    }
+    .event-flier .flier-placeholder {
+      aspect-ratio: 1 / 1.2;
+      border-radius: 20px;
+    }
+
+    /* Voting Poll */
+    .voting-poll {
+      background: linear-gradient(145deg, #0a212f, #03131e);
+      border-radius: 40px;
+      text-align: center;
+      padding: 2.5rem;
+      margin: 2rem 0;
+      border: 1px solid #f5b042;
+      box-shadow: 0 0 20px rgba(255,200,0,0.3);
+    }
+    .vote-count {
+      font-size: 3rem;
+      font-weight: 800;
+      font-family: 'Orbitron';
+      color: #ffdd88;
+      margin: 1rem 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: #5d9ec0;
+      border-top: 1px solid #2e6580;
+      margin-top: 2rem;
+    }
+    @media (max-width: 760px) {
+      .flier-grid { grid-template-columns: 1fr; }
+      .candidate-glitch { font-size: 2.2rem; }
+      .y2k-container { padding: 0 1rem; }
+      .event-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="grain-overlay"></div>
+<div class="y2k-container">
+  <!-- HERO -->
+  <div class="hero-chrome">
+    <div class="candidate-glitch">ADEYEMI OLUWATOMI</div>
+    <div class="position-y2k">◆ CANDIDATE :: GENERAL SECRETARY ◆</div>
+    <div class="watchwords">
+      <span class="watchword-pill">ORGANIZED</span>
+      <span class="watchword-pill">RELIABLE</span>
+      <span class="watchword-pill">EFFICIENT</span>
+    </div>
+    <p style="color:#bbf0ff; margin-top: 0.8rem; max-width: 600px;">⚡ Strengthening administrative structure through organized documentation, effective communication & coordination.</p>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem;">
+      <button class="btn-y2k" id="supportBtnY2K">📀 SUPPORT CAMPAIGN → JOIN WHATSAPP</button>
+      <button class="btn-y2k btn-outline-y2k" id="shareBtn">🔗 SHARE GROUP & FLIERS</button>
+      <button class="btn-y2k btn-outline-y2k" id="manifestoBtnY2K">📜 VIEW MANIFESTO</button>
+    </div>
+  </div>
+
+  <!-- MANIFESTO -->
+  <div class="manifesto-card" id="manifestoSection">
+    <div class="section-title-y2k">✧ MANIFESTO 2K ✧</div>
+    <div style="font-size:1rem; line-height:1.5;">
+      <p><strong>Dear fellow students,</strong><br>
+      I, Adeyemi Oluwatomi, humbly present myself as a candidate for the position of General Secretary. 
+      My vision is to strengthen the administrative structure of the department through organized documentation, 
+      effective communication, and responsible coordination.</p>
+      <ul class="manifesto-list" style="margin-top: 1rem;">
+        <li>Accurate documentation of meetings, proper record keeping, timely official correspondence in line with the constitution.</li>
+        <li>Organized records of departmental activities and past minutes to serve as reference for future administrations – ensure continuity.</li>
+        <li>Work closely with executives to ensure smooth coordination of events through documentation & communication.</li>
+        <li>Compile a simple documentation guide to help present/incoming executives understand administrative procedures.</li>
+      </ul>
+      <p style="margin: 1rem 0;">Serving previously as a <strong>Senator and Senate Scribe</strong> has given me practical experience in documentation, organization, and working within structured systems. These experiences have prepared me to effectively handle the responsibilities of the office of General Secretary.</p>
+      <p style="font-weight: bold;">This position is not just about keeping records, but about ensuring the administrative system remains <span style="color:#f5c542;">ORGANIZED, RELIABLE, and EFFICIENT.</span><br>
+      I therefore humbly seek your support and vote.<br><em>Thank you.</em></p>
+    </div>
+    <div style="margin-top: 1.8rem; border-top: 1px dashed #2bc0ff; padding-top: 1rem;">
+      <div style="font-family: 'Orbitron'; font-weight: bold; margin-bottom: 0.6rem;">✦ PREVIOUS LEADERSHIP ✦</div>
+      <div>
+        <span class="exp-badge">300level SOFTWARE ENGINEERING SENATOR</span>
+        <span class="exp-badge">SENATE SCRIBE</span>
+        <span class="exp-badge">GENERAL ASSISTANT COURSE REP (SE group A)</span>
+      </div>
+      <p style="font-size:0.8rem; margin-top: 0.5rem;">practical insight: documentation, parliamentary procedure & executive coordination</p>
+    </div>
+  </div>
+
+  <!-- FLIERS (two main) -->
+  <div>
+    <div class="section-title-y2k" style="margin-bottom: 0.5rem;">CAMPAIGN FLIERS</div>
+    <div class="flier-grid">
+      <div class="flier-card-y2k">
+        <div class="flier-placeholder" id="flierPlaceholder1">
+          <img src="one.png" alt="flier one" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">
+            <div style="font-size: 2rem;">📼</div>
+            <div class="flier-label">FLIER 01</div>
+            <div class="flier-sub">“organized · reliable · efficient”</div>
+            <div style="margin-top: 6px; background:#000000aa; border-radius: 20px; padding: 2px 8px; font-size: 0.65rem;">[ click to replace ]</div>
+          </div>
+        </div>
+        <div class="flier-caption">“organized · reliable · efficient”</div>
+      </div>
+      <div class="flier-card-y2k">
+        <div class="flier-placeholder" id="flierPlaceholder2">
+            <img src="two.jpeg" alt="flier two" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">
+            <div style="font-size: 2rem;">💿</div>
+            <div class="flier-label">FLIER 02</div>
+            <div class="flier-sub">“continuity · transparency”</div>
+            <div style="margin-top: 6px; background:#000000aa; border-radius: 20px; padding: 2px 8px; font-size: 0.65rem;">[ click to replace ]</div>
+          </div>
+        </div>
+        <div class="flier-caption">ADEYEMI OLUWATOMI FOR GENERAL SECRETARY</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPCOMING EVENTS: MANIFESTO EVENT with flier placeholder -->
+  <div class="section-title-y2k" style="margin-top: 1rem;">📅 UPCOMING EVENT</div>
+  <div class="event-card">
+    <div class="event-info">
+      <h3>📢 THE BUCC MANIFESTO</h3>
+      <p style="margin: 0.5rem 0; font-size: 1rem;"><strong>Date:</strong> March 20, 2026 · 1:00 PM WAT</p>
+      <p><strong>Venue:</strong> CIT</p>
+      <p>Join Adeyemi Oluwatomi as she presents the full administrative blueprint, answers your questions, and discusses how we will achieve an organized, reliable, and efficient department.</p>
+    </div>
+    <div class="event-flier">
+      <div class="flier-placeholder" id="eventFlierPlaceholder" style="border-radius: 20px;">
+        <img src="manifesto.jpeg" alt="flier one" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">
+          <div style="font-size: 2rem;">🎟️</div>
+          <div class="flier-label">EVENT FLIER</div>
+          <div class="flier-sub">manifesto event</div>
+          <div style="margin-top: 6px; background:#000000aa; border-radius: 20px; padding: 2px 8px; font-size: 0.65rem;">[ click to replace ]</div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- VOTING POLL (counts students that would vote) -->
+  <div class="voting-poll">
+    <h3 style="font-family: 'Orbitron'; letter-spacing: 1px;">🗳️ YOUR VOTE = ADMINISTRATIVE POWER</h3>
+    <p style="margin: 0.5rem auto;">Show your support — register your intention to vote for Adeyemi Oluwatomi as General Secretary</p>
+    <div class="vote-count" id="voteCountDisplay">0</div>
+    <button class="btn-y2k" id="voteNowBtn">✅ REGISTER MY VOTE</button>
+    <p style="margin-top: 1rem; font-size: 0.7rem;">* This is a mock poll to demonstrate student support. Your voice matters!</p>
+  </div>
+
+  <footer>
+    <p>© <span id="currentYearY2K"></span> ADEYEMI OLUWATOMI · for General Secretary · #OrganizedReliableEfficient</p>
+    <p style="font-size: 0.7rem; margin-top: 6px;">strengthening the administrative structure of the department through 
+organized documentation, effective communication, and responsible coordination. ✦</p>
+  </footer>
+</div>
+
+<script>
+  (function() {
+    document.getElementById('currentYearY2K').innerText = new Date().getFullYear();
+
+    const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/YourGroupInviteCode"; // CHANGE THIS TO YOUR REAL LINK
+    // Share message
+    const SHARE_MESSAGE = `📢 Join Adeyemi Oluwatomi's campaign WhatsApp group!\n${WHATSAPP_GROUP_URL}\n\nCheck out our campaign fliers and support a more ORGANIZED, RELIABLE & EFFICIENT department. #Tomi4GS #GeneralSecretary #NoTomiNoGenSec`;
+
+    // ========== FLIER PLACEHOLDER REPLACEMENT GUIDES ==========
+    const flier1 = document.getElementById('flierPlaceholder1');
+    const flier2 = document.getElementById('flierPlaceholder2');
+    const eventFlier = document.getElementById('eventFlierPlaceholder');
+
+    function showFlierInstruction(flierName) {
+      alert(`📀 ${flierName} PLACEHOLDER (Y2K GRAINY)\n\nTo add your own image:\n1. Delete the current .placeholder-y2k div inside this flier.\n2. Insert an <img> tag with src="your-image.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">\n3. The flier will keep the glossy Y2K frame.`);
+    }
+
+    if (flier1) flier1.addEventListener('click', (e) => { e.stopPropagation(); showFlierInstruction('FLIER 01'); });
+    if (flier2) flier2.addEventListener('click', (e) => { e.stopPropagation(); showFlierInstruction('FLIER 02'); });
+    if (eventFlier) eventFlier.addEventListener('click', (e) => { e.stopPropagation(); showFlierInstruction('EVENT FLIER'); });
+
+    // ========== WHATSAPP GROUP BUTTON ==========
+    const supportBtn = document.getElementById('supportBtnY2K');
+    if (supportBtn) {
+      supportBtn.addEventListener('click', () => {
+        if (WHATSAPP_GROUP_URL === "https://chat.whatsapp.com/FSjZfxUVnUZDwzTxq2SQ0T?mode=gi_t") {
+          alert("you would be redirected to the official campaign whatsapp group.");
+        } else {
+          window.open(WHATSAPP_GROUP_URL, '_blank');
+        }
+      });
+    }
+
+    // ========== SHARE BUTTON (copies group link + flier info) ==========
+    const shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(SHARE_MESSAGE);
+          alert("✅ Campaign info copied to clipboard!\n\nShare this message on WhatsApp or any platform:\n\n" + SHARE_MESSAGE);
+        } catch (err) {
+          alert("⚠️ Could not copy automatically. You can manually share this link: " + WHATSAPP_GROUP_URL);
+        }
+      });
+    }
+
+    // ========== VOTING POLL (counts students) ==========
+    let voteCount = localStorage.getItem('adeyemi_vote_count');
+    if (voteCount === null) {
+      voteCount = 0;
+      localStorage.setItem('adeyemi_vote_count', voteCount);
+    } else {
+      voteCount = parseInt(voteCount, 10);
+    }
+    const voteDisplay = document.getElementById('voteCountDisplay');
+    const voteBtn = document.getElementById('voteNowBtn');
+
+    function updateVoteDisplay() {
+      voteDisplay.innerText = voteCount;
+    }
+    updateVoteDisplay();
+
+    if (voteBtn) {
+      voteBtn.addEventListener('click', () => {
+        // Increment vote count (each student can vote once per session but we allow multiple for demo; we could add a flag but let's keep simple)
+        voteCount++;
+        localStorage.setItem('adeyemi_vote_count', voteCount);
+        updateVoteDisplay();
+        alert(`🗳️ Thank you for registering your support! Total students ready to vote: ${voteCount}. Every voice builds momentum!`);
+      });
+    }
+
+    // ========== MANIFESTO SCROLL ==========
+    const manifestoBtn = document.getElementById('manifestoBtnY2K');
+    if (manifestoBtn) {
+      manifestoBtn.addEventListener('click', () => {
+        const manifestoDiv = document.getElementById('manifestoSection');
+        if (manifestoDiv) {
+          manifestoDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          manifestoDiv.style.border = '2px solid #ffd966';
+          setTimeout(() => { manifestoDiv.style.border = '1px solid #32c8ff'; }, 800);
+        }
+      });
+    }
+
+    console.log('Y2K grainy campaign site ready — replace WhatsApp link, flier images, and event details as needed.');
+  })();
+</script>
+
+<!-- 
+  INSTRUCTIONS FOR CUSTOMIZATION:
+  1. WHATSAPP GROUP: change the WHATSAPP_GROUP_URL variable in the JavaScript to your actual WhatsApp invite link.
+  2. FLIER IMAGES: click any placeholder and follow instructions to replace with <img> tags.
+  3. EVENT DETAILS: update date, venue, and description inside the .event-card.
+  4. VOTING POLL: counts votes using localStorage; you can reset by clearing browser storage.
+-->
+</body>
+</html>
