@@ -415,7 +415,6 @@
       <div class="flier-card-y2k">
         <div class="flier-placeholder" id="flierPlaceholder1">
           <img src="one.png" alt="Campaign flier 1 - organized reliable efficient">
-          <div class="placeholder-overlay">✧ click to replace ✧</div>
         </div>
         <div class="flier-caption">“organized · reliable · efficient”</div>
       </div>
@@ -423,7 +422,6 @@
       <div class="flier-card-y2k">
         <div class="flier-placeholder" id="flierPlaceholder2">
           <img src="two.jpeg" alt="Campaign flier 2 - continuity transparency">
-          <div class="placeholder-overlay">✧ click to replace ✧</div>
         </div>
         <div class="flier-caption">ADEYEMI OLUWATOMI FOR GENERAL SECRETARY</div>
       </div>
@@ -442,7 +440,6 @@
     <div class="event-flier">
       <div class="flier-placeholder" id="eventFlierPlaceholder" style="border-radius: 20px;">
         <img src="manifesto.jpeg" alt="Manifesto event flier">
-        <div class="placeholder-overlay">✧ click to replace ✧</div>
       </div>
     </div>
   </div>
@@ -453,7 +450,7 @@
     <p style="margin: 0.5rem auto;">Show your support — register your intention to vote for Adeyemi Oluwatomi as General Secretary</p>
     <div class="vote-count" id="voteCountDisplay">0</div>
     <button class="btn-y2k" id="voteNowBtn">✅ REGISTER MY VOTE</button>
-    <p style="margin-top: 1rem; font-size: 0.7rem;">* This poll shows total votes from all supporters across devices.</p>
+    <p style="margin-top: 1rem; font-size: 0.7rem;">* This is a mock poll to demonstrate student support. Your voice matters!</p>
   </div>
 
   <!-- COUNTDOWN TO CAMPAIGN END -->
@@ -490,90 +487,16 @@
     document.getElementById('currentYearY2K').innerText = new Date().getFullYear();
 
     // ========== CONFIGURATION ==========
-    // WhatsApp group link
+    // 👇 REPLACE THIS WITH YOUR ACTUAL WHATSAPP GROUP INVITE LINK
     const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/FSjZfxUVnUZDwzTxq2SQ0T?mode=gi_t";
+    // Share message (will be copied to clipboard)
     const SHARE_MESSAGE = `📢 Join Adeyemi Oluwatomi's campaign WhatsApp group!\n${WHATSAPP_GROUP_URL}\n\nCheck out our campaign fliers and support a more ORGANIZED, RELIABLE & EFFICIENT department. #Tomi4GS #GeneralSecretary #NoTomiNoGenSec`;
-
-    // ========== VOTING POLL - GLOBAL VOTES ==========
-    // JSONBin configuration (provided by user)
-    const BIN_ID = "69bd21f3aa77b81da900bb71";
-    const API_KEY = "$2a$10$1nA9jqWkQHB9gxDUFL80fO7rQgTgbuVPHYAt6AO5T.uNhwVyhLdAq";
-    const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
-
-    let currentVotes = 0;
-    const voteDisplay = document.getElementById('voteCountDisplay');
-    const voteBtn = document.getElementById('voteNowBtn');
-
-    // Fetch current votes from JSONBin
-    async function fetchVotes() {
-      try {
-        const response = await fetch(JSONBIN_URL, {
-          headers: {
-            'X-Master-Key': API_KEY,
-            'Content-Type': 'application/json'
-          }
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        const data = await response.json();
-        const votes = data.record?.votes || 0;
-        currentVotes = votes;
-        voteDisplay.innerText = votes;
-        return votes;
-      } catch (err) {
-        console.error("Failed to fetch votes:", err);
-        voteDisplay.innerText = "⚠️";
-        return null;
-      }
-    }
-
-    // Update vote count on server
-    async function updateVotes(newCount) {
-      try {
-        const response = await fetch(JSONBIN_URL, {
-          method: 'PUT',
-          headers: {
-            'X-Master-Key': API_KEY,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ votes: newCount })
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        currentVotes = newCount;
-        voteDisplay.innerText = newCount;
-        return true;
-      } catch (err) {
-        console.error("Failed to update votes:", err);
-        alert("⚠️ Unable to register vote. Please try again later.");
-        return false;
-      }
-    }
-
-    // Load initial votes
-    fetchVotes();
-
-    // Register vote button
-    if (voteBtn) {
-      voteBtn.addEventListener('click', async () => {
-        voteBtn.disabled = true;
-        voteBtn.style.opacity = "0.7";
-        const newVotes = currentVotes + 1;
-        const success = await updateVotes(newVotes);
-        if (success) {
-          alert(`🗳️ Thank you for registering your support! Total students ready to vote: ${newVotes}. Every voice builds momentum!`);
-        }
-        voteBtn.disabled = false;
-        voteBtn.style.opacity = "1";
-      });
-    }
 
     // ========== FLIER PLACEHOLDER REPLACEMENT GUIDES ==========
     const flier1 = document.getElementById('flierPlaceholder1');
     const flier2 = document.getElementById('flierPlaceholder2');
     const eventFlier = document.getElementById('eventFlierPlaceholder');
 
-    function showFlierInstruction(flierName, currentImgSrc) {
-      alert(`📀 ${flierName} (Y2K GRAINY)\n\nCurrent image: ${currentImgSrc || 'none'}\n\nTo replace:\n1. Replace the src attribute of the <img> tag inside this placeholder.\n2. Keep the same styling (width:100%; height:100%; object-fit:cover; border-radius:24px).\n3. The overlay "click to replace" will still be there for future edits.`);
-    }
 
     if (flier1) {
       const img = flier1.querySelector('img');
@@ -604,7 +527,11 @@
     const supportBtn = document.getElementById('supportBtnY2K');
     if (supportBtn) {
       supportBtn.addEventListener('click', () => {
-        window.open(WHATSAPP_GROUP_URL, '_blank');
+        if (WHATSAPP_GROUP_URL === "https://chat.whatsapp.com/YourGroupInviteCode") {
+          alert("⚠️ WhatsApp group link not configured. Please update the WHATSAPP_GROUP_URL in the JavaScript with your actual invite link.");
+        } else {
+          window.open(WHATSAPP_GROUP_URL, '_blank');
+        }
       });
     }
 
@@ -615,6 +542,31 @@
         const encodedMessage = encodeURIComponent(SHARE_MESSAGE);
         const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
+      });
+    }
+
+    // ========== VOTING POLL (counts students) ==========
+    let voteCount = localStorage.getItem('adeyemi_vote_count');
+    if (voteCount === null) {
+      voteCount = 0;
+      localStorage.setItem('adeyemi_vote_count', voteCount);
+    } else {
+      voteCount = parseInt(voteCount, 10);
+    }
+    const voteDisplay = document.getElementById('voteCountDisplay');
+    const voteBtn = document.getElementById('voteNowBtn');
+
+    function updateVoteDisplay() {
+      voteDisplay.innerText = voteCount;
+    }
+    updateVoteDisplay();
+
+    if (voteBtn) {
+      voteBtn.addEventListener('click', () => {
+        voteCount++;
+        localStorage.setItem('adeyemi_vote_count', voteCount);
+        updateVoteDisplay();
+        alert(`🗳️ Thank you for registering your support! Total students ready to vote: ${voteCount}. Every voice builds momentum!`);
       });
     }
 
@@ -632,13 +584,15 @@
     }
 
     // ========== COUNTDOWN TIMER ==========
-    const campaignEnd = new Date(2026, 2, 20, 12, 59, 59);
+    // Campaign ends: March 20, 2026, 12:59:59 PM local time
+    const campaignEnd = new Date(2026, 2, 20, 12, 59, 59); // month index 2 = March
 
     function updateCountdown() {
       const now = new Date();
       const diff = campaignEnd - now;
 
       if (diff <= 0) {
+        // Campaign ended
         const timerDiv = document.getElementById('countdownTimer');
         if (timerDiv) {
           timerDiv.innerHTML = '<div class="countdown-ended">✨ CAMPAIGN ENDED — THANK YOU FOR YOUR SUPPORT! ✨</div>';
@@ -665,8 +619,17 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    console.log('Y2K grainy campaign site ready — all systems go!');
+    console.log('Y2K grainy campaign site ready — update WhatsApp link, replace flier images, and event details as needed.');
   })();
 </script>
+
+<!-- 
+  INSTRUCTIONS FOR CUSTOMIZATION:
+  1. WHATSAPP GROUP: change the WHATSAPP_GROUP_URL variable in the JavaScript to your actual WhatsApp invite link.
+  2. FLIER IMAGES: replace the src attributes of the <img> tags inside .flier-placeholder with your own image paths.
+  3. EVENT DETAILS: update date, venue, and description inside .event-info.
+  4. VOTING POLL: counts votes using localStorage; you can reset by clearing browser storage.
+  5. COUNTDOWN: automatically counts down to March 20, 2026 12:59:59 PM (local time). When ended, displays a message.
+-->
 </body>
 </html>
