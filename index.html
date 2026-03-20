@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ADEYEMI OLUWATOMI · GS campaign · Y2K grainy</title>
+  <title>ADEYEMI OLUWATOMI||GenSec</title>
   <!-- Y2K fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Orbitron:wght@400;500;600;800&display=swap" rel="stylesheet">
   <style>
@@ -199,24 +199,37 @@
       justify-content: center;
       cursor: pointer;
       transition: 0.2s;
-      border-bottom: 2px dashed #ffdd77;
+      position: relative;
+      overflow: hidden;
     }
-    .flier-placeholder:hover {
-      background: #1d3e50;
-    }
-    .placeholder-y2k {
-      text-align: center;
-      background: #00000099;
-      padding: 1.2rem;
+    .flier-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 24px;
-      backdrop-filter: blur(4px);
-      border: 1px solid gold;
+      transition: transform 0.3s ease;
     }
-    .flier-label {
-      font-size: 1.5rem;
-      font-weight: bold;
-      font-family: 'Orbitron', monospace;
+    .flier-placeholder:hover img {
+      transform: scale(1.02);
+    }
+    .placeholder-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
       color: #ffeaac;
+      text-align: center;
+      padding: 0.3rem;
+      font-size: 0.7rem;
+      font-family: 'Orbitron', monospace;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .flier-placeholder:hover .placeholder-overlay {
+      opacity: 1;
     }
     .flier-caption {
       text-align: center;
@@ -274,6 +287,58 @@
       margin: 1rem 0;
     }
 
+    /* Countdown Section */
+    .countdown-section {
+      background: linear-gradient(145deg, #0a212f, #03131e);
+      border-radius: 40px;
+      text-align: center;
+      padding: 2rem;
+      margin: 2rem 0;
+      border: 1px solid #45c8ff;
+      box-shadow: 0 0 20px rgba(69,200,255,0.3);
+    }
+    .countdown-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      color: #ffdf88;
+      margin-bottom: 1rem;
+    }
+    .countdown-timer {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .countdown-block {
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      padding: 0.8rem 1.2rem;
+      border-radius: 20px;
+      min-width: 80px;
+      border: 1px solid #ffd966;
+    }
+    .countdown-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      font-family: 'Orbitron', monospace;
+      color: #ffdd88;
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #bbf0ff;
+    }
+    .countdown-ended {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.8rem;
+      color: #ffaa66;
+      text-shadow: 0 0 8px #ffaa66;
+      padding: 1rem;
+    }
+
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -287,6 +352,9 @@
       .candidate-glitch { font-size: 2.2rem; }
       .y2k-container { padding: 0 1rem; }
       .event-card { flex-direction: column; }
+      .countdown-timer { gap: 0.8rem; }
+      .countdown-block { min-width: 60px; padding: 0.5rem; }
+      .countdown-number { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -312,7 +380,7 @@
 
   <!-- MANIFESTO -->
   <div class="manifesto-card" id="manifestoSection">
-    <div class="section-title-y2k">✧ MANIFESTO 2K ✧</div>
+    <div class="section-title-y2k">✧ MANIFESTO ✧</div>
     <div style="font-size:1rem; line-height:1.5;">
       <p><strong>Dear fellow students,</strong><br>
       I, Adeyemi Oluwatomi, humbly present myself as a candidate for the position of General Secretary. 
@@ -343,25 +411,17 @@
   <div>
     <div class="section-title-y2k" style="margin-bottom: 0.5rem;">CAMPAIGN FLIERS</div>
     <div class="flier-grid">
+      <!-- FLIER 1 -->
       <div class="flier-card-y2k">
         <div class="flier-placeholder" id="flierPlaceholder1">
-          <img src="one.png" alt="flier one" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">
-            <div style="font-size: 2rem;">📼</div>
-            <div class="flier-label">FLIER 01</div>
-            <div class="flier-sub">“organized · reliable · efficient”</div>
-            <div style="margin-top: 6px; background:#000000aa; border-radius: 20px; padding: 2px 8px; font-size: 0.65rem;">[ click to replace ]</div>
-          </div>
+          <img src="one.png" alt="Campaign flier 1 - organized reliable efficient">
         </div>
         <div class="flier-caption">“organized · reliable · efficient”</div>
       </div>
+      <!-- FLIER 2 -->
       <div class="flier-card-y2k">
         <div class="flier-placeholder" id="flierPlaceholder2">
-            <img src="two.jpeg" alt="flier two" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">
-            <div style="font-size: 2rem;">💿</div>
-            <div class="flier-label">FLIER 02</div>
-            <div class="flier-sub">“continuity · transparency”</div>
-            <div style="margin-top: 6px; background:#000000aa; border-radius: 20px; padding: 2px 8px; font-size: 0.65rem;">[ click to replace ]</div>
-          </div>
+          <img src="two.jpeg" alt="Campaign flier 2 - continuity transparency">
         </div>
         <div class="flier-caption">ADEYEMI OLUWATOMI FOR GENERAL SECRETARY</div>
       </div>
@@ -379,13 +439,8 @@
     </div>
     <div class="event-flier">
       <div class="flier-placeholder" id="eventFlierPlaceholder" style="border-radius: 20px;">
-        <img src="manifesto.jpeg" alt="flier one" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">
-          <div style="font-size: 2rem;">🎟️</div>
-          <div class="flier-label">EVENT FLIER</div>
-          <div class="flier-sub">manifesto event</div>
-          <div style="margin-top: 6px; background:#000000aa; border-radius: 20px; padding: 2px 8px; font-size: 0.65rem;">[ click to replace ]</div>
-        </div>
-    </div>
+        <img src="manifesto.jpeg" alt="Manifesto event flier">
+      </div>
     </div>
   </div>
 
@@ -398,10 +453,32 @@
     <p style="margin-top: 1rem; font-size: 0.7rem;">* This is a mock poll to demonstrate student support. Your voice matters!</p>
   </div>
 
+  <!-- COUNTDOWN TO CAMPAIGN END -->
+  <div class="countdown-section">
+    <div class="countdown-title">⏳ CAMPAIGN ENDS IN</div>
+    <div id="countdownTimer" class="countdown-timer">
+      <div class="countdown-block">
+        <div class="countdown-number" id="days">00</div>
+        <div class="countdown-label">DAYS</div>
+      </div>
+      <div class="countdown-block">
+        <div class="countdown-number" id="hours">00</div>
+        <div class="countdown-label">HOURS</div>
+      </div>
+      <div class="countdown-block">
+        <div class="countdown-number" id="minutes">00</div>
+        <div class="countdown-label">MINUTES</div>
+      </div>
+      <div class="countdown-block">
+        <div class="countdown-number" id="seconds">00</div>
+        <div class="countdown-label">SECONDS</div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>© <span id="currentYearY2K"></span> ADEYEMI OLUWATOMI · for General Secretary · #OrganizedReliableEfficient</p>
-    <p style="font-size: 0.7rem; margin-top: 6px;">strengthening the administrative structure of the department through 
-organized documentation, effective communication, and responsible coordination. ✦</p>
+    <p style="font-size: 0.7rem; margin-top: 6px;">strengthening the administrative structure of the department through organized documentation, effective communication, and responsible coordination. ✦</p>
   </footer>
 </div>
 
@@ -409,8 +486,10 @@ organized documentation, effective communication, and responsible coordination. 
   (function() {
     document.getElementById('currentYearY2K').innerText = new Date().getFullYear();
 
-    const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/YourGroupInviteCode"; // CHANGE THIS TO YOUR REAL LINK
-    // Share message
+    // ========== CONFIGURATION ==========
+    // 👇 REPLACE THIS WITH YOUR ACTUAL WHATSAPP GROUP INVITE LINK
+    const WHATSAPP_GROUP_URL = "https://chat.whatsapp.com/FSjZfxUVnUZDwzTxq2SQ0T?mode=gi_t";
+    // Share message (will be copied to clipboard)
     const SHARE_MESSAGE = `📢 Join Adeyemi Oluwatomi's campaign WhatsApp group!\n${WHATSAPP_GROUP_URL}\n\nCheck out our campaign fliers and support a more ORGANIZED, RELIABLE & EFFICIENT department. #Tomi4GS #GeneralSecretary #NoTomiNoGenSec`;
 
     // ========== FLIER PLACEHOLDER REPLACEMENT GUIDES ==========
@@ -418,36 +497,54 @@ organized documentation, effective communication, and responsible coordination. 
     const flier2 = document.getElementById('flierPlaceholder2');
     const eventFlier = document.getElementById('eventFlierPlaceholder');
 
-    function showFlierInstruction(flierName) {
-      alert(`📀 ${flierName} PLACEHOLDER (Y2K GRAINY)\n\nTo add your own image:\n1. Delete the current .placeholder-y2k div inside this flier.\n2. Insert an <img> tag with src="your-image.jpg" style="width:100%; height:100%; object-fit:cover; border-radius: 24px;">\n3. The flier will keep the glossy Y2K frame.`);
+    function showFlierInstruction(flierName, currentImgSrc) {
+      alert(`📀 ${flierName} (Y2K GRAINY)\n\nCurrent image: ${currentImgSrc || 'none'}\n\nTo replace:\n1. Replace the src attribute of the <img> tag inside this placeholder.\n2. Keep the same styling (width:100%; height:100%; object-fit:cover; border-radius:24px).\n3. The overlay "click to replace" will still be there for future edits.`);
     }
 
-    if (flier1) flier1.addEventListener('click', (e) => { e.stopPropagation(); showFlierInstruction('FLIER 01'); });
-    if (flier2) flier2.addEventListener('click', (e) => { e.stopPropagation(); showFlierInstruction('FLIER 02'); });
-    if (eventFlier) eventFlier.addEventListener('click', (e) => { e.stopPropagation(); showFlierInstruction('EVENT FLIER'); });
+    if (flier1) {
+      const img = flier1.querySelector('img');
+      flier1.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const src = img ? img.getAttribute('src') : 'no image';
+        showFlierInstruction('FLIER 01', src);
+      });
+    }
+    if (flier2) {
+      const img = flier2.querySelector('img');
+      flier2.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const src = img ? img.getAttribute('src') : 'no image';
+        showFlierInstruction('FLIER 02', src);
+      });
+    }
+    if (eventFlier) {
+      const img = eventFlier.querySelector('img');
+      eventFlier.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const src = img ? img.getAttribute('src') : 'no image';
+        showFlierInstruction('EVENT FLIER', src);
+      });
+    }
 
     // ========== WHATSAPP GROUP BUTTON ==========
     const supportBtn = document.getElementById('supportBtnY2K');
     if (supportBtn) {
       supportBtn.addEventListener('click', () => {
-        if (WHATSAPP_GROUP_URL === "https://chat.whatsapp.com/FSjZfxUVnUZDwzTxq2SQ0T?mode=gi_t") {
-          alert("you would be redirected to the official campaign whatsapp group.");
+        if (WHATSAPP_GROUP_URL === "https://chat.whatsapp.com/YourGroupInviteCode") {
+          alert("⚠️ WhatsApp group link not configured. Please update the WHATSAPP_GROUP_URL in the JavaScript with your actual invite link.");
         } else {
           window.open(WHATSAPP_GROUP_URL, '_blank');
         }
       });
     }
 
-    // ========== SHARE BUTTON (copies group link + flier info) ==========
+    // ========== SHARE BUTTON (opens WhatsApp with pre-filled message) ==========
     const shareBtn = document.getElementById('shareBtn');
     if (shareBtn) {
-      shareBtn.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(SHARE_MESSAGE);
-          alert("✅ Campaign info copied to clipboard!\n\nShare this message on WhatsApp or any platform:\n\n" + SHARE_MESSAGE);
-        } catch (err) {
-          alert("⚠️ Could not copy automatically. You can manually share this link: " + WHATSAPP_GROUP_URL);
-        }
+      shareBtn.addEventListener('click', () => {
+        const encodedMessage = encodeURIComponent(SHARE_MESSAGE);
+        const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
       });
     }
 
@@ -469,7 +566,6 @@ organized documentation, effective communication, and responsible coordination. 
 
     if (voteBtn) {
       voteBtn.addEventListener('click', () => {
-        // Increment vote count (each student can vote once per session but we allow multiple for demo; we could add a flag but let's keep simple)
         voteCount++;
         localStorage.setItem('adeyemi_vote_count', voteCount);
         updateVoteDisplay();
@@ -490,16 +586,53 @@ organized documentation, effective communication, and responsible coordination. 
       });
     }
 
-    console.log('Y2K grainy campaign site ready — replace WhatsApp link, flier images, and event details as needed.');
+    // ========== COUNTDOWN TIMER ==========
+    // Campaign ends: March 20, 2026, 12:59:59 PM local time
+    const campaignEnd = new Date(2026, 2, 20, 12, 59, 59); // month index 2 = March
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = campaignEnd - now;
+
+      if (diff <= 0) {
+        // Campaign ended
+        const timerDiv = document.getElementById('countdownTimer');
+        if (timerDiv) {
+          timerDiv.innerHTML = '<div class="countdown-ended">✨ CAMPAIGN ENDED — THANK YOU FOR YOUR SUPPORT! ✨</div>';
+        }
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const daysEl = document.getElementById('days');
+      const hoursEl = document.getElementById('hours');
+      const minutesEl = document.getElementById('minutes');
+      const secondsEl = document.getElementById('seconds');
+
+      if (daysEl) daysEl.innerText = days.toString().padStart(2, '0');
+      if (hoursEl) hoursEl.innerText = hours.toString().padStart(2, '0');
+      if (minutesEl) minutesEl.innerText = minutes.toString().padStart(2, '0');
+      if (secondsEl) secondsEl.innerText = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    console.log('Y2K grainy campaign site ready — update WhatsApp link, replace flier images, and event details as needed.');
   })();
 </script>
 
 <!-- 
   INSTRUCTIONS FOR CUSTOMIZATION:
   1. WHATSAPP GROUP: change the WHATSAPP_GROUP_URL variable in the JavaScript to your actual WhatsApp invite link.
-  2. FLIER IMAGES: click any placeholder and follow instructions to replace with <img> tags.
-  3. EVENT DETAILS: update date, venue, and description inside the .event-card.
+  2. FLIER IMAGES: replace the src attributes of the <img> tags inside .flier-placeholder with your own image paths.
+  3. EVENT DETAILS: update date, venue, and description inside .event-info.
   4. VOTING POLL: counts votes using localStorage; you can reset by clearing browser storage.
+  5. COUNTDOWN: automatically counts down to March 20, 2026 12:59:59 PM (local time). When ended, displays a message.
 -->
 </body>
 </html>
